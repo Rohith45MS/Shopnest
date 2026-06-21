@@ -6,6 +6,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../models/product_model.dart';
 import '../../controllers/cart_controller.dart';
 import '../../core/constants/app_colors.dart';
+import '../main_screen.dart';
 
 class ProductDetailScreen extends StatefulWidget {
   final ProductModel product;
@@ -48,7 +49,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
           isDark ? AppColors.darkBackground : const Color(0xFFF5F5F6),
       body: CustomScrollView(
         slivers: [
-          //Image App Bar
           SliverAppBar(
             expandedHeight: 340,
             pinned: true,
@@ -79,7 +79,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             flexibleSpace: FlexibleSpaceBar(
               background: Stack(
                 children: [
-                  // Image Carousel
                   PageView.builder(
                     controller: _imageController,
                     itemCount: _validImages.length,
@@ -114,7 +113,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       );
                     },
                   ),
-                  // Page Indicator
+
                   if (_validImages.length > 1)
                     Positioned(
                       bottom: 16,
@@ -133,7 +132,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         ),
                       ),
                     ),
-                  // Category badge
+
                   Positioned(
                     top: 60,
                     right: 16,
@@ -167,7 +166,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             ),
           ),
 
-          // ── Product Details ───────────────────────────────────────────────
           SliverToBoxAdapter(
             child: Container(
               decoration: BoxDecoration(
@@ -180,7 +178,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Title & Price Row
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -235,14 +232,12 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
 
                   const SizedBox(height: 20),
 
-                  // Divider
                   Divider(
                     color:
                         isDark ? AppColors.darkBorder : const Color(0xFFEAEAEC),
                   ),
                   const SizedBox(height: 16),
 
-                  // Description
                   Text(
                     'Description',
                     style: GoogleFonts.outfit(
@@ -266,7 +261,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
 
                   const SizedBox(height: 24),
 
-                  // Quantity selector (if in cart)
                   if (isInCart) ...[
                     Text(
                       'Quantity in Cart',
@@ -329,7 +323,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
         ],
       ),
 
-      // ── Bottom CTA ─────────────────────────────────────────────────────────
       bottomNavigationBar: Container(
         padding: const EdgeInsets.fromLTRB(24, 12, 24, 28),
         decoration: BoxDecoration(
@@ -386,7 +379,13 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               child: ElevatedButton.icon(
                 onPressed: () {
                   if (isInCart) {
-                    Navigator.pop(context);
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const MainScreen(initialIndex: 2),
+                      ),
+                      (route) => false,
+                    );
                   } else {
                     context.read<CartController>().addToCart(widget.product);
                     ScaffoldMessenger.of(context).showSnackBar(
