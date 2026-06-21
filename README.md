@@ -1,16 +1,109 @@
-# task_ecomerce
+# 🛒 ShopNest
 
-A new Flutter project.
+A Flutter E-Commerce Product Listing Application built with MVC Architecture and Provider State Management.
 
-## Getting Started
+## ✨ Features
 
-This project is a starting point for a Flutter application.
+- Product Listing
+- Product Details Page
+- Search Products
+- Category Filtering
+- Add to Cart
+- Cart Management
+- Total Price Calculation
+- Local Cart Persistence
+- Dark Mode Support
+- Responsive UI
+- API Integration
 
-A few resources to get you started if this is your first Flutter project:
+## 🏗️ Architecture
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- MVC (Model-View-Controller)
+- Provider State Management
+- Clean Folder Structure
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🛠️ Tech Stack
+
+- Flutter
+- Dart
+- Provider
+- Dio
+- Shared Preferences
+- Cached Network Image
+
+## 📱 Screens
+
+- Home Screen
+- Product Listing Screen
+- Product Details Screen
+- Cart Screen
+- Profile Screen
+
+## 🔗 API
+
+Data is fetched from:
+
+https://api.escuelajs.co
+
+## 🚀 Getting Started
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/Rohith45MS/Shopnest.git
+```
+
+### Install Dependencies
+
+```bash
+flutter pub get
+```
+
+### Run the Project
+
+```bash
+flutter run
+```
+
+## 📦 Build APK
+
+```bash
+flutter build apk --release
+```
+
+## 📂 Project Structure
+
+```text
+lib/
+├── models/
+├── services/
+├── controllers/
+├── views/
+├── core/
+└── main.dart
+```
+
+## 🎯 Key Features Implemented
+
+✅ Product Browsing
+
+✅ Product Detail View
+
+✅ Add to Cart
+
+✅ Cart Persistence
+
+✅ Provider State Management
+
+✅ MVC Architecture
+
+✅ Dark Mode
+
+## 👨‍💻 Developer
+
+Rohith MS
+
+GitHub: https://github.com/Rohith45MS
+
+---
+This project was developed as part of a Flutter Developer Machine Test.
